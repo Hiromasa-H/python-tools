@@ -2,7 +2,8 @@
 
 This is a repo of personal, independent script files that I often use. Each file handles small tasks such as:
 
-- converting mp4 videos to jpg frames
+- converting mp4 videos to jpg frames (mov works as well)
+- converting jpg files to animated gifs
 - creating QR codes for URLs saved in csv files
 
 ## Note

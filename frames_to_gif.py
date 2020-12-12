@@ -2,6 +2,7 @@ from PIL import Image
 import sys, getopt
 import os
 from os import listdir
+from utils import natural_keys
 
 def main(argv):
     # get arguments for inputfile and directory
@@ -30,7 +31,8 @@ def main(argv):
     #read and make gif
     images = []
     list_of_files = [file for file in listdir(inputdirectory)]
-    list_of_files.sort(key=lambda x: os.path.getmtime(f'{inputdirectory}/{x}'))# = sorted(list_of_files)
+    list_of_files.sort(key=natural_keys)
+    # list_of_files.sort(key=lambda x: os.path.getmtime(f'{inputdirectory}/{x}'))# = sorted(list_of_files)
     # print(list_of_files)
 
     for i, frame in enumerate(list_of_files):
