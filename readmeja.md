@@ -2,12 +2,12 @@
 
 [[English](README.md)]
 
-簡単なタスク処理乗っためによく使うスクリプトを集めたレポジトリです。対応している処理は以下の通りです。
+簡単なタスク処理のためによく使うスクリプトを集めたレポジトリです。対応している処理は以下の通りです。
 
 -  mp4 動画を jpg 静止画フレームに変換。 (mov から変換することも可能)
 - jpg 静止画フレームを gif映像に変換。
 - jpg 静止画フレームを mp4動画に変換。 (avi動画への変換も可能)
-~~- creating QR codes for URLs saved in csv files~~
+- ~~creating QR codes for URLs saved in csv files~~
 
 ## 各スクリプトの機能と使用方法
 
