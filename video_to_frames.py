@@ -4,8 +4,8 @@ import sys, getopt
 
 def main(argv):
     # get arguments for inputfile and directory
-    inputfile = ""
-    outputfile = ""
+    inputfile = "not specified"
+    outputdirectory = "not specified"
     try:
         opts, args = getopt.getopt(argv, "hi:o:f:", ["ifile=", "ofile=", "ffile="])
     except getopt.GetoptError:
@@ -13,7 +13,9 @@ def main(argv):
         sys.exit(2)
     for opt, arg in opts:
         if opt == "-h":  # help option
-            print("video_to_frames.py -i <inputfile path> -o <outputdirectory path> -f <outputfile format>")
+            print(
+                "video_to_frames.py -i <inputfile path> -o <outputdirectory path> -f <outputfile format>"
+            )
             sys.exit()
         elif opt in ("-i", "--ifile"):
             inputfile = arg
@@ -21,8 +23,8 @@ def main(argv):
             outputdirectory = arg
         elif opt in ("-f", "--ffile"):
             fileformat = arg
-    print('Input file is "', inputfile)
-    print('Output directory is "', outputdirectory)
+    print("Input file is ", inputfile)
+    print("Output directory is ", outputdirectory)
 
     # cut frames.
     vidcap = cv2.VideoCapture(inputfile)
@@ -39,7 +41,7 @@ def main(argv):
 
         # progress bar
         sys.stdout.write("\r")
-        sp = count / ((total_frames - 1 ) / 100)
+        sp = count / ((total_frames - 1) / 100)
         tp = int(sp / 4)
         sys.stdout.write("[%-25s] %d%%" % ("=" * tp, sp))  # 20s=20spaces
         sys.stdout.flush()
