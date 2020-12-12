@@ -7,42 +7,45 @@ def main(argv):
     inputfile = ""
     outputfile = ""
     try:
-        opts, args = getopt.getopt(argv, "hi:o:", ["ifile=", "ofile="])
+        opts, args = getopt.getopt(argv, "hi:o:f:", ["ifile=", "ofile=", "ffile="])
     except getopt.GetoptError:
-        print("test.py -i <inputfile> -o <outputdirectory>")
+        print("test.py -i <inputfile> -o <outputdirectory> -f <outputfile format>")
         sys.exit(2)
     for opt, arg in opts:
         if opt == "-h":  # help option
-            print("test.py -i <inputfile> -o <outputdirectory>")
+            print("video_to_frames.py -i <inputfile path> -o <outputdirectory path> -f <outputfile format>")
             sys.exit()
         elif opt in ("-i", "--ifile"):
             inputfile = arg
         elif opt in ("-o", "--ofile"):
             outputdirectory = arg
+        elif opt in ("-f", "--ffile"):
+            fileformat = arg
     print('Input file is "', inputfile)
     print('Output directory is "', outputdirectory)
 
     # cut frames.
     vidcap = cv2.VideoCapture(inputfile)
     total_frames = int(vidcap.get(cv2.CAP_PROP_FRAME_COUNT))
+    print(total_frames, "should be 582")
     success, image = vidcap.read()
     count = 0
     while success:
         cv2.imwrite(
-            f"{outputdirectory}/frame{count}.jpg", image
+            f"{outputdirectory}/frame{count}.{fileformat}", image
         )  # save frame as JPEG file
         success, image = vidcap.read()
         # print("Read a new frame: ", success)
 
         # progress bar
         sys.stdout.write("\r")
-        sp = count / ((total_frames - 1) / 100)
+        sp = count / ((total_frames - 1 ) / 100)
         tp = int(sp / 4)
         sys.stdout.write("[%-25s] %d%%" % ("=" * tp, sp))  # 20s=20spaces
         sys.stdout.flush()
 
         count += 1
-    print("   finished.")
+    print("\nfinished.")
 
 
 if __name__ == "__main__":
