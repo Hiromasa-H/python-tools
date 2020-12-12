@@ -7,7 +7,7 @@ def main(argv):
     # get arguments for inputfile and directory
     inputdirectory = "not specified"
     outputfile = "not specified"
-    output_fps = 30
+    output_fps = 16.5
     try:
         opts, args = getopt.getopt(argv, "hi:o:f:", ["ifile=", "ofile=", "ofps="])
     except getopt.GetoptError:
@@ -43,7 +43,7 @@ def main(argv):
       sys.stdout.write("[%-25s] %d%% " % ("=" * tp, sp))  # 20s=20spaces
       sys.stdout.flush()
 
-    duration = 1000 / int(output_fps)
+    duration = int(1000 / int(output_fps))
 
     print("\nsaving gif file...")
 
