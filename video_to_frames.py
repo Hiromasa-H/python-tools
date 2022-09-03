@@ -1,5 +1,6 @@
 import cv2
 import sys, getopt
+import os
 
 
 def main(argv):
@@ -29,9 +30,11 @@ def main(argv):
     # cut frames.
     vidcap = cv2.VideoCapture(inputfile)
     total_frames = int(vidcap.get(cv2.CAP_PROP_FRAME_COUNT))
-    print(total_frames, "should be 582")
+    print("total frames: ",total_frames)
     success, image = vidcap.read()
     count = 0
+    if not os.path.isdir(outputdirectory):
+        os.mkdir(outputdirectory)
     while success:
         cv2.imwrite(
             f"{outputdirectory}/frame{count}.{fileformat}", image
