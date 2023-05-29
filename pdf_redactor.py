@@ -33,3 +33,19 @@ pages_to_redact = [0,1]
 
 redactor = Redactor(path,outpath,redact_coords)
 redactor.redaction(pages_to_redact)
+
+# import os
+# import glob
+
+# # 黒塗り座標
+# redact_coords = [(37,80,550,219),(37,220,289,242)]
+# # 黒塗りページ
+# pages_to_redact = [0,1]
+
+# # 黒塗りしたいpdfが入ってるフォルダの指定
+# directory = '<pdfファイルが置かれたフォルダへのパス>'
+# pdf_files = glob.glob(os.path.join(directory, '*.pdf'))
+# for path in pdf_files:
+#     outpath = f"{path[:-4]}_redacted.pdf"
+#     redactor = Redactor(path,outpath,redact_coords)
+#     redactor.redaction(pages_to_redact)
