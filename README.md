@@ -10,6 +10,7 @@ This is a repo of personal, independent script files that I often use. Each file
 - stacking 2 mp4 videos side by side, or 4 mp4 videos in a 4x4 square.x
 - Plotting GPU memory usage over a certain period
 - ~~creating QR codes for URLs saved in csv files~~
+- downsampling a video to a specified resolution
 
 ## Description of each file and how to use them
 
